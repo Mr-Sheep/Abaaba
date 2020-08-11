@@ -7,10 +7,12 @@ function Cat({ text, name, upvotes }) {
       <h1>Fact from {name ? `${name.last} ${name.first}` : "Unknown"}</h1>
       <p>
         {text}
-        <br />
-        <br />
-        Upvotes: {upvotes}
       </p>
+      <br />
+        <br />
+      <div>
+        Upvotes: {upvotes}
+      </div>
     </section>
   );
 }
