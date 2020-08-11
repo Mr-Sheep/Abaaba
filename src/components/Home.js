@@ -3,14 +3,19 @@ import Cat from './Cat';
 
 export default function Home({cats}){
     return(
-    <div id="all">
-        <img src = "https://tse2-mm.cn.bing.net/th/id/OIP.beme4RCj0MOwiYCuiRbc3gHaD4?pid=Api&rs=1" id ="image"/>
-        <div className = "Introduction">
-            <h1>Introduce the Website</h1>
-            <p>
-                This should be the introduction of the website.
-            </p>
+    <div id="all" class = "split left">
+        <div class = "centered">
+            <img src = "https://tse2-mm.cn.bing.net/th/id/OIP.beme4RCj0MOwiYCuiRbc3gHaD4?pid=Api&rs=1" id ="image"/>
+            <div className = "Introduction">
+                <h1>Introduce the Website</h1>
+                <ul>
+                    <li>We focus on interesting facts about cats, presenting them in the form of decks.</li>
+                    <li>Each card includes the author, text of the cat fact, and number of upvotes received.</li>
+                </ul>
+            </div>
         </div>
+    
+    <div class="split right">
         <article>
             <header>
                 <h1>Sample Cat Facts</h1>
@@ -21,6 +26,7 @@ export default function Home({cats}){
                 ))}
             </div>
         </article>
+    </div>
     </div>
         
         );
