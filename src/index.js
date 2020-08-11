@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Router, Link } from "@reach/router";
 import './index.css';
 import Fact from './components/Fact';
-import data from "./data/facts.json"
+import Home from './components/Home';
+import data from "./data/facts.json";
 import * as serviceWorker from './serviceWorker';
 
 // var data;
@@ -11,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 //     .then((response) => response.json())
 //     .then((res) => data = res);
 
-let Home = () => <div> Home </div>;
+// let Home = () => <div> Home </div>;
 let Dashboard= () => <div> Dashboard </div>;
 const App = ({ children }) => (
 <div>
@@ -22,7 +23,7 @@ const App = ({ children }) => (
     </nav>
 
     <Router>
-    <Home path="/" />
+    <Home path="/" cats={data}/>
     <Dashboard path="dashboard" />
     <Fact path ="fact" cats={data}/>
     </Router>
