@@ -16,10 +16,10 @@ import * as serviceWorker from './serviceWorker';
 let Dashboard= () => <div> Dashboard </div>;
 const App = ({ children }) => (
 <div>
-    <nav>
-    <Link to="/">Home</Link> 
-    <Link to="fact">FactsList</Link>
-    <Link to="dashboard">Dashboard</Link>
+    <nav className = "navbar">
+        <Link id="nav" to="/">Home</Link> 
+        <Link id="nav" to="fact">FactsList</Link>
+        <Link id="nav" to="dashboard">Dashboard</Link>
     </nav>
 
     <Router>

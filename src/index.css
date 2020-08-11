@@ -51,11 +51,13 @@ section {
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  bottom:0;
+  margin-top: 40px;
 }
 .left {
   left:0;
   width: 30%;
-  background-color:darkgray; 
+  background-color:darkgray;  
 }
 .right {
   right:0;
@@ -64,7 +66,7 @@ section {
 } 
 .centered{
   position: absolute;
-  top:40%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -74,3 +76,31 @@ section {
   width: 400px;
   height: 200px;
 } 
+
+nav {
+  overflow: hidden;
+  background-color:black;
+}
+
+#nav {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 24px;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+li{
+  text-align:left;
+  font-size: 20px;
+  color:whitesmoke;
+}
