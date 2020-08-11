@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
-import './index.css';
-import Fact from './components/Fact';
-import Home from './components/Home';
+import "./index.css";
+import Fact from "./components/Fact";
+import Home from "./components/Home";
 import data from "./data/facts.json";
-import * as serviceWorker from './serviceWorker';
+import Dashboard from "./components/dashboard.js"
+import * as serviceWorker from "./serviceWorker";
+
+// uncomment this line to test
+// import Fetch from "./components/Fetch";
+
 
 // var data;
 // fetch("https://cat-fact.herokuapp.com/facts")
@@ -13,21 +18,27 @@ import * as serviceWorker from './serviceWorker';
 //     .then((res) => data = res);
 
 // let Home = () => <div> Home </div>;
-let Dashboard= () => <div> Dashboard </div>;
+// let Dashboard = () => <div> Dashboard </div>;
 const App = ({ children }) => (
-<div>
-    <nav className = "navbar">
-        <Link id="nav" to="/">Home</Link> 
-        <Link id="nav" to="fact">FactsList</Link>
-        <Link id="nav" to="dashboard">Dashboard</Link>
+  <div>
+    <nav className="navbar">
+      <Link id="nav" to="/">
+        Home
+      </Link>
+      <Link id="nav" to="fact">
+        FactsList
+      </Link>
+      <Link id="nav" to="dashboard">
+        Dashboard
+      </Link>
     </nav>
 
     <Router>
-    <Home path="/" cats={data}/>
-    <Dashboard path="dashboard" />
-    <Fact path ="fact" cats={data}/>
+      <Home path="/" cats={data} />
+      <Dashboard path="dashboard" />
+      <Fact path="fact" cats={data} />
     </Router>
-</div>
+  </div>
 );
 ReactDOM.render(<App />, document.getElementById("root"));
 
