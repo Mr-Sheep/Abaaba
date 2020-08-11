@@ -6,8 +6,10 @@ import Fact from './components/Fact';
 import * as serviceWorker from './serviceWorker';
 
 var data;
-fetch("https://cat-fact.herokuapp.com/facts").then((response) => response.json()).then((res) => data = res);
-console.log(data);
+fetch("https://cat-fact.herokuapp.com/facts")
+    .then((response) => response.json())
+    .then((res) => data = res);
+
 
 ReactDOM.render(<Fact cats={data}/>, document.getElementById('root'));
 
