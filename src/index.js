@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
 import "./index.css";
 import Fact from "./components/Fact";
 import Home from "./components/Home";
-import data from "./data/facts.json";
-import Dashboard from "./components/dashboard.js"
+// import data from "./data/facts.json";
+import Dashboard from "./components/dashboard.js";
 import * as serviceWorker from "./serviceWorker";
+import aego from "./components/Fetch";
 
 // uncomment this line to test
-// import Fetch from "./components/Fetch";
-
 
 // var data;
 // fetch("https://cat-fact.herokuapp.com/facts")
@@ -19,27 +18,38 @@ import * as serviceWorker from "./serviceWorker";
 
 // let Home = () => <div> Home </div>;
 // let Dashboard = () => <div> Dashboard </div>;
-const App = ({ children }) => (
-  <div>
-    <nav className="navbar">
-      <Link id="nav" to="/">
-        Home
-      </Link>
-      <Link id="nav" to="fact">
-        FactsList
-      </Link>
-      <Link id="nav" to="dashboard">
-        Dashboard
-      </Link>
-    </nav>
+const App = ({ children }) => {
+  const [data, setData] = useState([]);
 
-    <Router>
-      <Home path="/" cats={data} />
-      <Dashboard path="dashboard" />
-      <Fact path="fact" cats={data} />
-    </Router>
-  </div>
-);
+  useEffect(() => {
+    aego().then((result) => {
+      setData(result);
+    });
+    return () => {};
+  }, []);
+
+  return (
+    <div>
+      <nav className="navbar">
+        <Link id="nav" to="/">
+          Home
+        </Link>
+        <Link id="nav" to="fact">
+          FactsList
+        </Link>
+        <Link id="nav" to="dashboard">
+          Dashboard
+        </Link>
+      </nav>
+
+      <Router>
+        <Home path="/" cats={data} />
+        <Dashboard path="dashboard" />
+        <Fact path="fact" cats={data} />
+      </Router>
+    </div>
+  );
+};
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // ReactDOM.render(<Fact cats={data}/>, document.getElementById('root'));

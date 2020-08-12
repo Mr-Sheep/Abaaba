@@ -1,15 +1,10 @@
+// This is not a component
+
 import React, { useState, useEffect } from "react";
 
-const Fetch = () => {
-  const [data, setQuotes] = useState([]);
-
-  async function fetchData() {
+const aego = async () => {
     const res = await fetch("https://cat-fact.herokuapp.com/facts");
-    res.json().then((res) => setQuotes(res));
-  }
-  useEffect(() => {
-    fetchData();
-  });
-  return data;
+    const data = await res.json();
+    return data.all;
 };
-export default Fetch;
+export default aego;
